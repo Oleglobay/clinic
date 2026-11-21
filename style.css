@@ -1,5 +1,5 @@
 
-/* Îñíîâí³ íàëàøòóâàííÿ */
+/* Основні налаштування */
 
 * {
     margin: 0;
@@ -8,13 +8,35 @@
 }
 
 body {
+    --bg: #f4f4f4;
+    --text: #222222;
+    --card: #ffffff;
+    --row1: #eeeeee;
+    --row2: #ffffff;
+    --border: #dddddd;
+    --input-bg: #ffffff;
+    --muted: #666666;
     font-family: Arial, sans-serif;
-    background-color: #111111;
-    color: #eeeeee;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.5;
+    transition: 0.3s;
 }
 
-/* Øàïêà ñàéòó */
+    /* Темна тема */
+
+    body:has(#dark-theme:checked) {
+        --bg: #111111;
+        --text: #eeeeee;
+        --card: #1c1c1c;
+        --row1: #292929;
+        --row2: #1c1c1c;
+        --border: #444444;
+        --input-bg: #111111;
+        --muted: #aaaaaa;
+    }
+
+/* Шапка */
 
 header {
     text-align: center;
@@ -32,14 +54,14 @@ header {
         }
 
     header p {
-        color: #aaaaaa;
+        color: var(--muted);
         margin-top: 5px;
     }
 
-/* Îñíîâíèé áëîê */
+/* Основний блок */
 
 main {
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 40px auto;
     padding: 0 20px;
 }
@@ -52,11 +74,95 @@ h2 {
 }
 
 .description {
-    color: #aaaaaa;
+    color: var(--muted);
     margin-bottom: 22px;
 }
 
-/* Òàáëèöÿ */
+/* Перемикач теми */
+
+.theme-switch {
+    margin-bottom: 25px;
+}
+
+    .theme-switch input {
+        accent-color: #d71920;
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+    }
+
+    .theme-switch label {
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+/* Фільтри */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+    .filter-group h3 {
+        width: 100%;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    /* Приховуємо стандартні радіокнопки */
+
+    .filter-group input {
+        display: none;
+    }
+
+/* Кнопки фільтрів */
+
+.filter-label {
+    display: inline-block;
+    padding: 8px 13px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+    .filter-label:hover {
+        border-color: #d71920;
+        color: #d71920;
+    }
+
+/* Активний фільтр */
+
+body:has(#days-all:checked) label[for="days-all"],
+body:has(#days-weekdays:checked) label[for="days-weekdays"],
+body:has(#days-weekends:checked) label[for="days-weekends"],
+body:has(#time-all:checked) label[for="time-all"],
+body:has(#time-first:checked) label[for="time-first"],
+body:has(#time-second:checked) label[for="time-second"],
+body:has(#category-all:checked) label[for="category-all"],
+body:has(#category-higher:checked) label[for="category-higher"],
+body:has(#category-first:checked) label[for="category-first"],
+body:has(#category-second:checked) label[for="category-second"] {
+    background: #d71920;
+    color: white;
+    border-color: #d71920;
+}
+
+/* Таблиця */
 
 .table-container {
     overflow-x: auto;
@@ -64,47 +170,81 @@ h2 {
 
 table {
     width: 100%;
+    min-width: 850px;
     border-collapse: collapse;
-    min-width: 750px;
     font-size: 14px;
 }
 
 thead {
-    background-color: #d71920;
+    background: #d71920;
     color: white;
 }
 
 th, td {
     padding: 15px 12px;
     text-align: left;
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid var(--border);
 }
 
-/* Íåïàðí³ òà ïàðí³ ðÿäêè */
+/* Парні та непарні рядки */
 
 tbody tr:nth-child(odd) {
-    background-color: #292929;
+    background: var(--row1);
 }
 
 tbody tr:nth-child(even) {
-    background-color: #1c1c1c;
+    background: var(--row2);
 }
 
-/* Âèä³ëåííÿ ðÿäêà ïðè íàâåäåíí³ */
+/* Наведення курсора */
 
 tbody tr:hover {
-    background-color: #d71920;
+    background: #d71920;
     color: white;
     transition: 0.2s;
 }
 
-/* Ôîðìà */
+/* Фільтр за днями */
+
+body:has(#days-weekdays:checked) tbody tr:not(.weekday) {
+    display: none;
+}
+
+body:has(#days-weekends:checked) tbody tr:not(.weekend) {
+    display: none;
+}
+
+/* Фільтр за часом */
+
+body:has(#time-first:checked) tbody tr:not(.first-half) {
+    display: none;
+}
+
+body:has(#time-second:checked) tbody tr:not(.second-half) {
+    display: none;
+}
+
+/* Фільтр за категорією */
+
+body:has(#category-higher:checked) tbody tr:not(.higher) {
+    display: none;
+}
+
+body:has(#category-first:checked) tbody tr:not(.first) {
+    display: none;
+}
+
+body:has(#category-second:checked) tbody tr:not(.second) {
+    display: none;
+}
+
+/* Форма */
 
 .contact {
     margin-top: 50px;
     padding: 30px;
-    background-color: #1c1c1c;
-    border: 1px solid #333333;
+    background: var(--card);
+    border: 1px solid var(--border);
     border-radius: 5px;
 }
 
@@ -116,37 +256,39 @@ form {
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
 
-input {
+input[type="tel"],
+input[type="email"] {
     width: 100%;
     padding: 13px;
-    background-color: #111111;
-    color: white;
-    border: 1px solid #444444;
+    background: var(--input-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
     border-radius: 3px;
     outline: none;
     font-size: 14px;
 }
 
-    input:focus {
+    input[type="tel"]:focus,
+    input[type="email"]:focus {
         border-color: #e32636;
     }
 
-    input::placeholder {
-        color: #777777;
-    }
+input::placeholder {
+    color: #888888;
+}
 
-/* Êíîïêà */
+/* Кнопка форми */
 
 .submit-btn {
     display: none;
     padding: 13px 25px;
-    background-color: #d71920;
+    background: #d71920;
     color: white;
     border: none;
     border-radius: 3px;
@@ -155,27 +297,27 @@ input {
 }
 
     .submit-btn:hover {
-        background-color: #a90f17;
+        background: #a90f17;
     }
 
-/* Ïîêàç êíîïêè, ÿêùî îáèäâà ïîëÿ çàïîâíåí³ ïðàâèëüíî */
+/* Показ кнопки після правильного заповнення полів */
 
 form:has(#phone:valid):has(#email:valid) .submit-btn {
     display: block;
 }
 
-/* Ï³äâàë */
+/* Підвал */
 
 footer {
     margin-top: 50px;
     padding: 25px;
     text-align: center;
-    color: #777777;
-    border-top: 1px solid #333333;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
     font-size: 13px;
 }
 
-/* Àäàïòàö³ÿ äëÿ òåëåôîí³â */
+/* Адаптація для телефонів */
 
 @media (max-width: 600px) {
     header h1 {
@@ -184,6 +326,11 @@ footer {
 
     main {
         padding: 0 12px;
+    }
+
+    .filters {
+        gap: 20px;
+        padding: 15px;
     }
 
     .contact {
