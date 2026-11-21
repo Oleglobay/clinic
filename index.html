@@ -249,39 +249,47 @@
         </section>
 
         <!-- Форма заявки -->
-        <section class="contact">
-            <h2>Залишити заявку</h2>
-            <p class="description">
-                Введіть свої контактні дані для зв'язку.
-            </p>
+        
+<section class="contact">
+    <h2>Залишити заявку</h2>
+    <p class="description">
+        Введіть свої контактні дані для зв'язку.
+    </p>
 
-            <form action="#" method="post">
+    <form action="https://formsubmit.co/olehlobay@gmail.com"
+          method="POST">
 
-                <div class="form-group">
-                    <label for="phone">Номер телефону</label>
-                    <input type="tel"
-                           id="phone"
-                           name="phone"
-                           placeholder="+380XXXXXXXXX"
-                           pattern="\+380[0-9]{9}"
-                           required>
-                </div>
+        <div class="form-group">
+            <label for="phone">Номер телефону</label>
+            <input
+                type="tel"
+                id="phone"
+                name="Телефон"
+                placeholder="+380XXXXXXXXX"
+                pattern="\+380[0-9]{9}"
+                required>
+        </div>
 
-                <div class="form-group">
-                    <label for="email">Електронна пошта</label>
-                    <input type="email"
-                           id="email"
-                           name="email"
-                           placeholder="example@gmail.com"
-                           required>
-                </div>
+        <div class="form-group">
+            <label for="email">Електронна пошта</label>
+            <input
+                type="email"
+                id="email"
+                name="Email"
+                placeholder="example@gmail.com"
+                required>
+        </div>
 
-                <button type="submit" class="submit-btn">
-                    Надіслати дані
-                </button>
+        <input type="hidden" name="_subject"
+               value="Нова заявка з MEDCLINIC">
 
-            </form>
-        </section>
+        <button type="submit" class="submit-btn">
+            Надіслати дані
+        </button>
+
+    </form>
+</section>
+
 
     </main>
 
