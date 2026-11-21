@@ -1,5 +1,5 @@
 
-/* Основні налаштування */
+/* ГЋГ±Г­Г®ГўГ­Ві Г­Г Г«Г ГёГІГіГўГ Г­Г­Гї */
 
 * {
     margin: 0;
@@ -14,7 +14,7 @@ body {
     line-height: 1.5;
 }
 
-/* Шапка сайту */
+/* ГГ ГЇГЄГ  Г±Г Г©ГІГі */
 
 header {
     text-align: center;
@@ -36,7 +36,7 @@ header {
         margin-top: 5px;
     }
 
-/* Основний блок */
+/* ГЋГ±Г­Г®ГўГ­ГЁГ© ГЎГ«Г®ГЄ */
 
 main {
     max-width: 1200px;
@@ -56,7 +56,7 @@ h2 {
     margin-bottom: 22px;
 }
 
-/* Таблиця */
+/* Г’Г ГЎГ«ГЁГ¶Гї */
 
 .table-container {
     overflow-x: auto;
@@ -80,7 +80,7 @@ th, td {
     border-bottom: 1px solid #333333;
 }
 
-/* Непарні та парні рядки */
+/* ГЌГҐГЇГ Г°Г­Ві ГІГ  ГЇГ Г°Г­Ві Г°ГїГ¤ГЄГЁ */
 
 tbody tr:nth-child(odd) {
     background-color: #292929;
@@ -90,7 +90,7 @@ tbody tr:nth-child(even) {
     background-color: #1c1c1c;
 }
 
-/* Виділення рядка при наведенні */
+/* Г‚ГЁГ¤ВіГ«ГҐГ­Г­Гї Г°ГїГ¤ГЄГ  ГЇГ°ГЁ Г­Г ГўГҐГ¤ГҐГ­Г­Ві */
 
 tbody tr:hover {
     background-color: #d71920;
@@ -98,7 +98,7 @@ tbody tr:hover {
     transition: 0.2s;
 }
 
-/* Форма */
+/* Г”Г®Г°Г¬Г  */
 
 .contact {
     margin-top: 50px;
@@ -141,7 +141,7 @@ input {
         color: #777777;
     }
 
-/* Кнопка */
+/* ГЉГ­Г®ГЇГЄГ  */
 
 .submit-btn {
     display: none;
@@ -158,13 +158,13 @@ input {
         background-color: #a90f17;
     }
 
-/* Показ кнопки, якщо обидва поля заповнені правильно */
+/* ГЏГ®ГЄГ Г§ ГЄГ­Г®ГЇГЄГЁ, ГїГЄГ№Г® Г®ГЎГЁГ¤ГўГ  ГЇГ®Г«Гї Г§Г ГЇГ®ГўГ­ГҐГ­Ві ГЇГ°Г ГўГЁГ«ГјГ­Г® */
 
 form:has(#phone:valid):has(#email:valid) .submit-btn {
     display: block;
 }
 
-/* Підвал */
+/* ГЏВіГ¤ГўГ Г« */
 
 footer {
     margin-top: 50px;
@@ -175,7 +175,7 @@ footer {
     font-size: 13px;
 }
 
-/* Адаптація для телефонів */
+/* ГЂГ¤Г ГЇГІГ Г¶ВіГї Г¤Г«Гї ГІГҐГ«ГҐГґГ®Г­ВіГў */
 
 @media (max-width: 600px) {
     header h1 {
